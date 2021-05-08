@@ -1,0 +1,20 @@
+{
+  "name": "insta-clone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "client:start": "npm start --prefix client",
+    "server:start": "npm dev --prefix server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Karan9034/insta-clone.git"
+  },
+  "author": "Karan Agrawal",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Karan9034/insta-clone/issues"
+  },
+  "homepage": "https://github.com/Karan9034/insta-clone"
+}
