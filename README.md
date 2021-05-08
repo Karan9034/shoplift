@@ -1,1 +1,1 @@
-# insta-clone
+# Shoplift

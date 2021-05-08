@@ -1,20 +1,20 @@
 {
-  "name": "insta-clone",
+  "name": "shoplift",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "client:start": "npm start --prefix client",
-    "server:start": "npm dev --prefix server"
+    "server:start": "npm run dev --prefix server"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Karan9034/insta-clone.git"
+    "url": "git+https://github.com/Karan9034/shoplift.git"
   },
   "author": "Karan Agrawal",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Karan9034/insta-clone/issues"
+    "url": "https://github.com/Karan9034/shoplift/issues"
   },
-  "homepage": "https://github.com/Karan9034/insta-clone"
+  "homepage": "https://github.com/Karan9034/shoplift"
 }
