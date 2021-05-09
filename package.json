@@ -16,5 +16,6 @@
   "bugs": {
     "url": "https://github.com/Karan9034/shoplift/issues"
   },
-  "homepage": "https://github.com/Karan9034/shoplift"
+  "homepage": "https://github.com/Karan9034/shoplift",
+  "dependencies": {}
 }
