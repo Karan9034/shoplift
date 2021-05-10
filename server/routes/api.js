@@ -1,23 +1,23 @@
 const router = require("express").Router();
 const passport = require("passport");
-const jwt = require("jsonwebtoken");
-const getToken = require("../utils/getToken");
+const { getAllProducts, addNewProduct } = require("../controllers/Products");
+const {
+    registerSeller,
+    getProductsBySeller,
+    loginSeller,
+} = require("../controllers/Sellers");
 
-router.get("/products", (req, res) => {
-    res.json();
-});
+// Product Routes
+router.get("/products", getAllProducts);
+router.post("/products", addNewProduct);
 
+// Seller Authentication Routes
 router.post(
-    "/login",
+    "/seller/login",
     passport.authenticate("jwt", { session: false }),
-    (req, res) => {
-        var token = getToken(req.headers);
-        re.json();
-    }
+    loginSeller
 );
-
-router.post("/register", (req, res) => {
-    res.json();
-});
+router.post("/seller/register", registerSeller);
+router.get("/:id/products", getProductsBySeller);
 
 module.exports = router;
