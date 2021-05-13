@@ -1,5 +1,4 @@
 const router = require("express").Router();
-const passport = require("passport");
 const {
     registerSeller,
     getProductsBySeller,
@@ -21,7 +20,6 @@ router.get("/seller/:id/products", getProductsBySeller);
 // TODO: Incomplete loginSeller Function
 router.post(
     "/seller/login",
-    passport.authenticate("jwt", { session: false }),
     loginSeller
 );
 // TODO: Add Auth for only seller

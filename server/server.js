@@ -1,6 +1,5 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const passport = require("passport");
 const cors = require("cors");
 require("dotenv").config();
 
@@ -24,11 +23,9 @@ mongoose
     });
 
 // Middlewares
-require("./middlewares/passport")(passport);
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(passport.initialize());
 
 // Routes
 app.use("/api", require("./routes/api"));

@@ -1,22 +1,46 @@
 const mongoose = require("mongoose");
 
 const OrdersSchema = mongoose.Schema({
-    name: {
-        type: String,
-        required: true,
-    },
-    price: {
-        type: Number,
-        required: true,
-    },
-    stock: {
-        type: Number,
+    order: [
+        {
+            product: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "products",
+                required: true,
+            },
+            quantity: {
+                type: Number,
+                required: true,
+            },
+        },
+    ],
+    customer: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "users",
         required: true,
     },
     seller: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "sellers",
         required: true,
+    },
+    total: {
+        type: Number,
+        required: true,
+    },
+    address: {
+        area: {
+            type: String,
+            required: true,
+        },
+        city: {
+            type: String,
+            required: true,
+        },
+        pin: {
+            type: Number,
+            required: true,
+        },
     },
 });
 

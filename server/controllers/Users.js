@@ -1,5 +1,7 @@
 const Users = require("../models/Users");
 const Products = require("../models/Products");
+const bcrypt = require("bcryptjs");
+
 module.exports = {
     registerUser: (req, res) => {
         if (
@@ -13,29 +15,39 @@ module.exports = {
             let password = req.body.password;
             let phone = req.body.phone;
 
-            let newUser = Users({
-                name,
-                email,
-                password,
-                phone,
-            });
+            bcrypt.genSalt(10, (err, salt) => {
+                if (err) console.log(err);
+                else {
+                    bcrypt.hash(password, salt, (err, hash) => {
+                        if (err) console.log(err);
+                        else {
+                            let newUser = new Users({
+                                name,
+                                email,
+                                password: hash,
+                                phone,
+                            });
 
-            newUser.save((err) => {
-                if (err) {
-                    res.status(500).json({
-                        status: "failed",
-                        msg: "Server Error",
-                    });
-                    console.log(err);
-                } else {
-                    res.status(200).json({
-                        status: "success",
-                        msg: "User Registered",
+                            newUser.save((err) => {
+                                if (err) {
+                                    res.status(500).json({
+                                        status: "failed",
+                                        msg: "Server Error",
+                                    });
+                                    console.log(err);
+                                } else {
+                                    res.status(200).json({
+                                        status: "success",
+                                        msg: "User Registered",
+                                    });
+                                }
+                            });
+                        }
                     });
                 }
             });
         } else {
-            res.status(403).json({ status: "failed", msg: "Bad Request" });
+            res.status(400).json({ status: "failed", msg: "Bad Request" });
         }
     },
     loginUser: (req, res) => {

@@ -20,7 +20,22 @@ const UsersSchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
+    orders: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "orders",
+        },
+    ],
 });
+
+UsersSchema.methods.comparePassword = function (password, done) {
+    bcrypt.compare(password, this.password, function (err, isMatch) {
+        if (err) {
+            return done(err);
+        }
+        done(null, isMatch);
+    });
+};
 
 const Users = mongoose.model("users", UsersSchema);
 module.exports = Users;

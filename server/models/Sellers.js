@@ -26,26 +26,12 @@ const SellersSchema = new mongoose.Schema({
             ref: "products",
         },
     ],
-});
-
-SellersSchema.pre("save", function (next) {
-    var seller = this;
-    if (this.isModified("password") || this.isNew) {
-        bcrypt.genSalt(10, function (err, salt) {
-            if (err) {
-                return next(err);
-            }
-            bcrypt.hash(seller.password, salt, null, function (err, hash) {
-                if (err) {
-                    return next(err);
-                }
-                seller.password = hash;
-                next();
-            });
-        });
-    } else {
-        return next();
-    }
+    orders: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "orders",
+        },
+    ],
 });
 
 SellersSchema.methods.comparePassword = function (password, done) {
