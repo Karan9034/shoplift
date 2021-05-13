@@ -12,16 +12,16 @@ const OrdersSchema = mongoose.Schema({
                 type: Number,
                 required: true,
             },
+            seller: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "sellers",
+                required: true,
+            },
         },
     ],
     customer: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "users",
-        required: true,
-    },
-    seller: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "sellers",
         required: true,
     },
     total: {
@@ -34,6 +34,10 @@ const OrdersSchema = mongoose.Schema({
             required: true,
         },
         city: {
+            type: String,
+            required: true,
+        },
+        state: {
             type: String,
             required: true,
         },
