@@ -1,6 +1,6 @@
-# Shoplift
+# Shoplift (Under Construction😅)
 
-A full fledged E-Commerce web app built using the MERN Stack.
+An eCommerce web app built using the MERN Stack.
 
 ## Checklist
 
