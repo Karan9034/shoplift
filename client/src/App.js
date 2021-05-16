@@ -1,11 +1,29 @@
-import React from 'react';
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 
-class App extends React.Component {
-	render() {
-		return (
-			<h1>React+Webpack Boilerplate</h1>
-		)
-	}
-}
+const App = () => {
+    return (
+        <Router>
+            <Navbar />
+            <div className="page">
+                <Switch>
+                    <Route path="/" exact>
+                        <Home />
+                    </Route>
+                    <Route path="/login">
+                        <Login />
+                    </Route>
+                    <Route path="/register">
+                        <Register />
+                    </Route>
+                </Switch>
+            </div>
+        </Router>
+    );
+};
 
 export default App;
