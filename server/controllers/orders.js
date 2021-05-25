@@ -38,21 +38,15 @@ module.exports = {
                 total,
             });
 
-            newOrder.save().then((order) => {
-                let orders;
+            newOrder.save().then((or) => {
                 Users.findById(customer, (err, user) => {
-                    orders = user.orders;
-                }).then(() => {
-                    Users.findByIdAndUpdate(
-                        customer,
-                        { orders: [...orders, order] },
-                        () => {
-                            res.json({
-                                status: "success",
-                                msg: "Order Successful",
-                            });
-                        }
-                    );
+                    user.orders = [...user.orders, or];
+                    user.save().then(() => {
+                        res.json({
+                            status: "success",
+                            msg: "Order Successful",
+                        });
+                    });
                 });
             });
         } else {
@@ -61,15 +55,19 @@ module.exports = {
     },
     getSellerOrders: (req, res) => {
         id = req.user;
-        let orders;
-        Sellers.findById(id)
-            .populate("orders")
-            .then((seller) => {
-                orders = seller.orders;
-                res.json(orders);
-            })
-            .catch((err) => {
-                res.status(404).json({ status: "failed", msg: "Not Found" });
+        let sellerOrders = [];
+
+        Orders.find().then((orders) => {
+            orders.forEach((order) => {
+                order.order.forEach((or) => {
+                    if (or.seller == id) {
+                        sellerOrders = [...sellerOrders, or];
+                    }
+                });
             });
+            res.json({
+                sellerOrders,
+            });
+        });
     },
 };

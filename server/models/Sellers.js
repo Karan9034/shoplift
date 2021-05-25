@@ -26,12 +26,6 @@ const SellersSchema = new mongoose.Schema({
             ref: "products",
         },
     ],
-    orders: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "orders",
-        },
-    ],
 });
 
 SellersSchema.methods.comparePassword = function (password, done) {

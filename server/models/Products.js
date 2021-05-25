@@ -18,6 +18,11 @@ const ProductsSchema = mongoose.Schema({
         ref: "sellers",
         required: true,
     },
+    img: {
+        type: String,
+        required: true,
+        default: "default.png",
+    },
 });
 
 const Products = mongoose.model("products", ProductsSchema);

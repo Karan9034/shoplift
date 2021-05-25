@@ -1,1 +1,1 @@
-# react-webpack-template
+# Shoplift Client

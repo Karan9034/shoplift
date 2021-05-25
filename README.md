@@ -7,7 +7,7 @@ An eCommerce web app built using the MERN Stack.
 -   [x] ~~Customer Portal APIs~~
 -   [x] ~~Seller Portal APIs~~
 -   [x] ~~Product APIs~~
--   [ ] Order APIs (Minor Changes Needed)
+-   [x] ~~Order APIs~~
 -   [ ] Customer Home Page
 -   [ ] Seller Page to add Products
 -   [ ] Login Page

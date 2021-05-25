@@ -71,6 +71,6 @@ router.get("/user/orders", verifyUser, getUserOrders);
 // @route     POST /api/orders/new
 // @desc      Create New Order
 // @access    Private
-router.post("/orders/new", verifyUser, createOrder); // Incomplete Seller Order Update
+router.post("/orders/new", verifyUser, createOrder);
 
 module.exports = router;
