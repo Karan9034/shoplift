@@ -9,7 +9,7 @@ import React from "react";
 
 const CustomCard = ({ name, price, sellerName }) => {
     return (
-        <Card>
+        <Card elevation={4}>
             <CardActionArea>
                 <CardMedia
                     component="img"

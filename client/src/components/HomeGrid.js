@@ -1,8 +1,18 @@
-import Grid from "@material-ui/core/Grid";
-import CustomCard from "./CustomCard";
 import React, { useState, useEffect } from "react";
+import CustomCard from "./CustomCard";
+import { makeStyles } from "@material-ui/core";
+import Grid from "@material-ui/core/Grid";
+
+const useStyles = makeStyles(() => ({
+    root: {
+        marginLeft: "5vw",
+        marginRight: "5vw",
+        width: "90vw",
+    },
+}));
 
 const HomeGrid = () => {
+    const classes = useStyles();
     let [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -15,7 +25,7 @@ const HomeGrid = () => {
     }, [products]);
 
     return (
-        <Grid container spacing={5}>
+        <Grid className={classes.root} container spacing={5}>
             {products.map((product) => (
                 <Grid item key={product._id} md={3} sm={4} xs={6}>
                     <CustomCard
