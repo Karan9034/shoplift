@@ -14,7 +14,7 @@ const CustomCard = ({ name, price, sellerName }) => {
                 <CardMedia
                     component="img"
                     height="200"
-                    image="/src/assets/default.png"
+                    image="/static/images/default.png"
                     title={name}
                 />
                 <CardContent>

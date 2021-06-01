@@ -16,9 +16,10 @@ const HomeGrid = () => {
     let [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:8000/api/products/all")
+        fetch("/api/products/all")
             .then((res) => res.json())
             .then((data) => {
+                console.log(data);
                 setProducts(data);
             })
             .catch((err) => console.log(err));

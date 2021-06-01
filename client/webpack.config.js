@@ -13,6 +13,10 @@ module.exports = (env, options) => {
         },
         devtool: isDevMode ? "source-map" : false,
         devServer: {
+            proxy: {
+                "/static": "http://localhost:8000",
+                "/api": "http://localhost:8000",
+            },
             historyApiFallback: true,
         },
         module: {
