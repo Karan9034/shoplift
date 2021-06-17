@@ -19,11 +19,11 @@ const HomeGrid = () => {
         fetch("/api/products/all")
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);
+                // console.log(data);
                 setProducts(data);
             })
             .catch((err) => console.log(err));
-    }, [products]);
+    }, []);
 
     return (
         <Grid className={classes.root} container spacing={5}>
