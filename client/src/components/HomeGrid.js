@@ -11,12 +11,13 @@ const useStyles = makeStyles(() => ({
     },
 }));
 
-const HomeGrid = () => {
+const HomeGrid = ({ isCustomer }) => {
     const classes = useStyles();
     let [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch("/api/products/all")
+        let url = isCustomer ? "/api/products/all" : undefined;
+        fetch(url)
             .then((res) => res.json())
             .then((data) => {
                 // console.log(data);
