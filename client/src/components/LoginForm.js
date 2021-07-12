@@ -68,7 +68,7 @@ const LoginForm = () => {
                 color="primary"
                 onClick={handleSubmit}
             >
-                Submit
+                Login
             </Button>
         </form>
     );
